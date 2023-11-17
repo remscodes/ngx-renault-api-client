@@ -1,14 +1,30 @@
 {
-  "name": "ngx-renault-api-client",
+  "name": "@remscodes/ngx-renault-api-client",
   "version": "0.0.0",
+  "description": "Angular http client to use Renault API",
+  "license": "MIT",
+  "author": {
+    "name": "Rémy Abitbol",
+    "url": "https://github.com/remscodes"
+  },
   "scripts": {
-    "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "private": true,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remscodes/ngx-renault-api-client"
+  },
+  "engines": {
+    "node": ">=18.13.0"
+  },
   "dependencies": {
     "@angular/animations": "^17.0.0",
     "@angular/common": "^17.0.0",
@@ -34,5 +50,10 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.2.2"
   },
+  "keywords": [
+    "renault",
+    "http",
+    "angular"
+  ],
   "packageManager": "pnpm@8.10.5"
 }
