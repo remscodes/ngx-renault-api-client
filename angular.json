@@ -3,5 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "@remscodes/ngx-renault-api-client": {
+      "projectType": "library",
+      "root": "projects/remscodes/ngx-renault-api-client",
+      "sourceRoot": "projects/remscodes/ngx-renault-api-client/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/remscodes/ngx-renault-api-client/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/remscodes/ngx-renault-api-client/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/remscodes/ngx-renault-api-client/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/remscodes/ngx-renault-api-client/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
   }
 }

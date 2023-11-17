@@ -1,6 +1,7 @@
 {
-  "name": "@remscodes/ngx-renault-api-client",
+  "name": "ngx-renault-api-client",
   "version": "0.0.0",
+  "private": true,
   "description": "Angular http client to use Renault API",
   "license": "MIT",
   "author": {
@@ -12,9 +13,6 @@
     "build": "ng build",
     "test": "ng test"
   },
-  "files": [
-    "dist"
-  ],
   "publishConfig": {
     "access": "public"
   },
@@ -39,6 +37,7 @@
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^17.0.1",
     "@angular/cli": "^17.0.0",
     "@angular/compiler-cli": "^17.0.0",
     "@types/jasmine": "~5.1.0",
@@ -48,12 +47,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^17.0.0",
     "typescript": "~5.2.2"
   },
-  "keywords": [
-    "renault",
-    "http",
-    "angular"
-  ],
   "packageManager": "pnpm@8.10.5"
 }
