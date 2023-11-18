@@ -1,5 +1,5 @@
 {
-  "name": "ngx-renault-api-client",
+  "name": "ngx-renault-api-client-sources",
   "version": "0.0.0",
   "private": true,
   "description": "Angular http client to use Renault API",
@@ -9,12 +9,9 @@
     "url": "https://github.com/remscodes"
   },
   "scripts": {
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test"
-  },
-  "publishConfig": {
-    "access": "public"
+    "build": "ng build @remscodes/ngx-renault-api-client",
+    "test": "ng test @remscodes/ngx-renault-api-client --code-coverage",
+    "test:ci": "npm run test -- --no-watch --no-progress --browsers=ChromeHeadless"
   },
   "repository": {
     "type": "git",
