@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "@remscodes/ngx-renault-api-client": {
+    "ngx-renault-api-client": {
       "projectType": "library",
       "root": "projects/ngx-renault-api-client",
       "sourceRoot": "projects/ngx-renault-api-client/src",

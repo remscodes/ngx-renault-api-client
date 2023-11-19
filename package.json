@@ -9,8 +9,8 @@
     "url": "https://github.com/remscodes"
   },
   "scripts": {
-    "build": "ng build @remscodes/ngx-renault-api-client",
-    "test": "ng test @remscodes/ngx-renault-api-client --code-coverage",
+    "build": "ng build ngx-renault-api-client",
+    "test": "ng test ngx-renault-api-client --code-coverage",
     "test:ci": "npm run test -- --no-watch --no-progress --browsers=ChromeHeadless"
   },
   "repository": {
