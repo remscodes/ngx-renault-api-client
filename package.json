@@ -30,7 +30,9 @@
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
     "@remscodes/renault-api": "^1.2.2",
+    "dayjs": "^1.11.10",
     "rxjs": "~7.8.0",
+    "thror": "^1.0.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
   },
