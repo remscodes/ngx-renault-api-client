@@ -9,6 +9,7 @@
     "url": "https://github.com/remscodes"
   },
   "scripts": {
+    "start": "npm run build && ng serve ngx-renault-api-client-demo",
     "build": "ng build ngx-renault-api-client",
     "test": "ng test ngx-renault-api-client --code-coverage",
     "test:ci": "npm run test -- --no-watch --no-progress --browsers=ChromeHeadless"
@@ -29,6 +30,7 @@
     "@angular/platform-browser": "^17.0.0",
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
+    "@remscodes/ngx-renault-api-client": "file:./dist/ngx-renault-api-client",
     "@remscodes/renault-api": "^1.2.2",
     "dayjs": "^1.11.10",
     "rxjs": "~7.8.0",
@@ -41,6 +43,7 @@
     "@angular/cli": "^17.0.0",
     "@angular/compiler-cli": "^17.0.0",
     "@types/jasmine": "~5.1.0",
+    "autoprefixer": "^10.4.16",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
@@ -48,6 +51,8 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^17.0.0",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
     "typescript": "~5.2.2"
   },
   "packageManager": "pnpm@8.10.5"
