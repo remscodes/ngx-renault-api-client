@@ -32,9 +32,15 @@ dependencies:
   '@remscodes/renault-api':
     specifier: ^1.2.2
     version: 1.2.2
+  dayjs:
+    specifier: ^1.11.10
+    version: 1.11.10
   rxjs:
     specifier: ~7.8.0
     version: 7.8.1
+  thror:
+    specifier: ^1.0.1
+    version: 1.0.1
   tslib:
     specifier: ^2.3.0
     version: 2.6.2
@@ -3645,6 +3651,10 @@ packages:
     engines: {node: '>=4.0'}
     dev: true
 
+  /dayjs@1.11.10:
+    resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
+    dev: false
+
   /debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
     peerDependencies:
@@ -7205,6 +7215,11 @@ packages:
   /text-table@0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
     dev: true
+
+  /thror@1.0.1:
+    resolution: {integrity: sha512-9eQflGxhPv2NJr0c7aRjLnYzRmsEQcfMCGFb4SVKg3+CXcRqnD9cAwErlIZZUweNOkBomr4kPZJnZ4dMwMH1Iw==}
+    engines: {node: '>=18.0.0'}
+    dev: false
 
   /thunky@1.1.0:
     resolution: {integrity: sha512-eHY7nBftgThBqOyHGVN+l8gF0BucP09fMo0oO/Lb0w1OF80dJv+lDVpXG60WMQvkcxAkNybKsrEIE3ZtKGmPrA==}
