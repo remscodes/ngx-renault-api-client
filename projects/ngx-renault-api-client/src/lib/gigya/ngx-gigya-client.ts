@@ -1,16 +1,17 @@
-import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
+import { HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AccountInfo, GigyaApi, LoginInfo, LogoutInfo, TokenInfo, TokenPublicInfo } from '@remscodes/renault-api';
 import { map, Observable, tap } from 'rxjs';
 import { NgxRenaultSession } from '../ngx-renault-session.service';
 import { fixGigyaResponse } from './gigya-fix';
+import { GigyaHttpClient } from './http/gigya.http-client';
 
 @Injectable()
 export class NgxGigyaClient {
 
   public constructor(
-    private readonly httpClient: HttpClient,
-    private readonly session: NgxRenaultSession,
+    private readonly httpClient: GigyaHttpClient,
+    public readonly session: NgxRenaultSession,
   ) { }
 
   /**

@@ -1,5 +1,5 @@
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import type { GigyaErrorResponse, GigyaResponse } from '@remscodes/renault-api';
+import { GigyaErrorResponse, GigyaResponse } from '@remscodes/renault-api';
 
 export function fixGigyaResponse<T extends GigyaResponse>(res: HttpResponse<T>): HttpResponse<T> {
   if (isGigyaErrorResponse(res)) throw responseToError(res);
@@ -14,7 +14,7 @@ function responseToError({ headers, body, url, statusText }: HttpResponse<GigyaE
   return new HttpErrorResponse({
     headers,
     url: `${url}`,
-    status: body?.statusCode ?? 500,
+    status: body?.statusCode,
     statusText,
     error: {
       message: body?.errorMessage,

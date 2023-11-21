@@ -1,5 +1,5 @@
 import { formatDate } from '@angular/common';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActionChargeMode, AdapterInfo, BatteryStatus, ChargeHistory, ChargeMode, ChargeModeInputs, Charges, ChargeScheduleInputs, ChargingSettings, Cockpit, DateFilter, HvacHistory, HvacScheduleInputs, HvacSessions, HvacSettings, HvacStartInputs, HvacStatus, KamereonApi, LockStatus, NotificationSettingsData, PERIOD_TZ_FORMAT, Person, ResStateData, VehicleContract, VehicleDetails, VehicleLocation, Vehicles } from '@remscodes/renault-api';
 import { Observable } from 'rxjs';
@@ -7,14 +7,15 @@ import { emitError } from 'thror';
 import { Optional } from '../models/shared.model';
 import { NgxRenaultSession } from '../ngx-renault-session.service';
 import { dateFilterToParams } from '../utils/date.utils';
+import { KamereonHttpClient } from './http/kamereon.http-client';
 import { PerformApiUrl, ReadApiUrl } from './models/kamereon-url.models';
 
 @Injectable()
 export class NgxKamereonClient {
 
   public constructor(
-    private readonly httpClient: HttpClient,
-    private readonly session: NgxRenaultSession,
+    private readonly httpClient: KamereonHttpClient,
+    public readonly session: NgxRenaultSession,
   ) { }
 
   /**
