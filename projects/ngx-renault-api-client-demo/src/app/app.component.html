@@ -1,0 +1,58 @@
+<div class="flex flex-col gap-2 p-2">
+
+  <div class="flex flex-col gap-4 overflow-auto p-4 items-center border-4">
+
+    <span class="font-bold">Gigya</span>
+
+    <div class="flex flex-row gap-4">
+
+      <div class="panel flex-1">
+
+        <span class="font-bold">Login</span>
+
+        <form class="flex flex-row gap-4" [formGroup]="form" (ngSubmit)="login()">
+
+          <input id="user-text-field"
+                 type="email"
+                 formControlName="login"
+                 placeholder="Email *">
+
+          <input id="current-password"
+                 type="password"
+                 formControlName="password"
+                 placeholder="Mot de passe *">
+
+          <button type="submit">
+            <span>Envoyer</span>
+          </button>
+        </form>
+      </div>
+
+      <div *ngIf="gigyaToken()" class="panel flex-1">
+
+        <span class="font-bold">JWT</span>
+
+        <button type="button" (click)="getJwt()">
+          <span>Récupérer</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-4 overflow-auto p-4 items-center border-4">
+
+    <span class="font-bold">Kamereon</span>
+
+    <div class="flex flex-row gap-4">
+
+      <div class="panel flex-1">
+
+        <span></span>
+      </div>
+
+      <div *ngIf="gigyaToken()" class="panel flex-1">
+
+      </div>
+    </div>
+  </div>
+</div>

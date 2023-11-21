@@ -9,10 +9,12 @@
     "url": "https://github.com/remscodes"
   },
   "scripts": {
-    "start": "npm run build && ng serve ngx-renault-api-client-demo",
+    "start": "npm run build && pnpm i && ng serve ngx-renault-api-client-demo",
+    "start:host": "npm run start -- --host 0.0.0.0 --disable-host-check",
     "build": "ng build ngx-renault-api-client",
     "test": "ng test ngx-renault-api-client --code-coverage",
-    "test:ci": "npm run test -- --no-watch --no-progress --browsers=ChromeHeadless"
+    "test:ci": "npm run test -- --no-watch --no-progress --browsers=ChromeHeadless",
+    "type": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
