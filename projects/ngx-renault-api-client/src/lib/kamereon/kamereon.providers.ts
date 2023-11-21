@@ -1,11 +1,12 @@
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { EnvironmentProviders, Provider } from '@angular/core';
-import { kamereonInterceptor } from './interceptors/kamereon.interceptor';
+import { KamereonHandler } from './http/kamereon.handler';
+import { KamereonHttpClient } from './http/kamereon.http-client';
 import { NgxKamereonClient } from './ngx-kamereon-client';
 
 export const KAMEREON_PROVIDERS: (Provider | EnvironmentProviders)[] = [
-  provideHttpClient(
-    withInterceptors([kamereonInterceptor()]),
-  ),
-  NgxKamereonClient
+  provideHttpClient(),
+  KamereonHandler,
+  KamereonHttpClient,
+  NgxKamereonClient,
 ];

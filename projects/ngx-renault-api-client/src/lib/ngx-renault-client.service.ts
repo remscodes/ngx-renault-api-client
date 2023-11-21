@@ -7,8 +7,8 @@ import { NgxRenaultSession } from './ngx-renault-session.service';
 export class NgxRenaultClient {
 
   public constructor(
-    public readonly session: NgxRenaultSession,
     public readonly gigya: NgxGigyaClient,
     public readonly kamereon: NgxKamereonClient,
+    public readonly session: NgxRenaultSession,
   ) { }
 }
