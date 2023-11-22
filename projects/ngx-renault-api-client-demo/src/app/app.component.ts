@@ -1,21 +1,24 @@
-import { NgIf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, DestroyRef, Signal } from '@angular/core';
+import { JsonPipe, NgForOf, NgIf } from '@angular/common';
+import { Component, computed, DestroyRef, Signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgxGigyaClient, NgxKamereonClient, NgxRenaultClient } from '@remscodes/ngx-renault-api-client';
-import { LoginInfo, TokenInfo } from '@remscodes/renault-api';
+import { Account, AccountInfo, BatteryStatus, LoginInfo, Person, TokenInfo, Vehicles } from '@remscodes/renault-api';
+import { concatMap } from 'rxjs';
+import { Nullable, Optional } from './models/shared.models';
 import { AppService } from './services/app.service';
-import { Nullable } from './models/shared.models';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
     NgIf,
+    NgForOf,
+    FormsModule,
     ReactiveFormsModule,
+    JsonPipe,
   ],
 })
 export class AppComponent {
@@ -34,7 +37,20 @@ export class AppComponent {
     password: new FormControl('', Validators.required),
   });
 
-  public gigyaToken: Signal<Nullable<string>> = this.appService.gigyaToken;
+  public formAccounts: FormGroup = new FormGroup({
+    accountId: new FormControl('', Validators.required),
+  });
+  public formVins: FormGroup = new FormGroup({
+    vin: new FormControl('', Validators.required),
+  });
+
+  public token: Signal<Nullable<string>> = this.appService.token;
+
+  public accounts: Signal<Account[]> = computed(() => (this.appService.person()?.accounts ?? []));
+  public vins: Signal<string[]> = computed(() => (this.appService.vehicles().map(v => v.vin!) ?? []));
+  public vin = this.appService.selectedVin;
+
+  public batteryStatus: Optional<BatteryStatus>;
 
   public login(): void {
     if (this.form.invalid) return;
@@ -42,17 +58,66 @@ export class AppComponent {
     const { login, password } = this.form.value;
 
     this.gigya.login(login, password)
-      .pipe(takeUntilDestroyed(this.destroyRef))
+      .pipe(
+        concatMap(({ sessionInfo }: LoginInfo) => {
+          this.appService.gigyaToken.set(sessionInfo?.cookieValue!);
+          return this.gigya.getJwt();
+        }),
+        takeUntilDestroyed(this.destroyRef),
+      )
       .subscribe({
-        next: ({ sessionInfo }: LoginInfo) => this.appService.gigyaToken.set(sessionInfo?.cookieValue!),
+        next: ({ id_token }: TokenInfo) => {
+          this.appService.token.set(id_token!);
+        },
       });
   }
 
-  public getJwt(): void {
-    this.gigya.getJwt()
+  public getInfos(): void {
+    this.gigya.getJwt().pipe(
+      concatMap(({ id_token }: TokenInfo) => {
+        this.appService.token.set(id_token!);
+        return this.gigya.getAccountInfo();
+      }),
+      concatMap(({ data }: AccountInfo) => {
+        const personId = data!.personId!;
+        this.appService.personId.set(personId);
+        return this.kamereon.getPerson(personId);
+      }),
+      takeUntilDestroyed(this.destroyRef),
+    ).subscribe({
+      next: (person: Person) => {
+        this.appService.person.set(person);
+      },
+    });
+  }
+
+  public getBatteryStatus(): void {
+    this.kamereon.readBatteryStatus(this.appService.selectedVin()!)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
-        next: ({ id_token }: TokenInfo) => this.appService.token.set(id_token!),
+        next: (batteryStatus: BatteryStatus) => this.batteryStatus = batteryStatus,
       });
+  }
+
+  public selectAccount(): void {
+    if (this.formAccounts.invalid) return;
+
+    const { accountId } = this.formAccounts.value;
+
+    this.appService.selectedAccountId.set(accountId);
+
+    this.kamereon.getAccountVehicles(accountId)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (vehicles: Vehicles) => this.appService.vehicles.set(vehicles.vehicleLinks!),
+      });
+  }
+
+  public selectVin(): void {
+    if (this.formVins.invalid) return;
+
+    const { vin } = this.formVins.value;
+
+    this.appService.selectedVin.set(vin);
   }
 }
