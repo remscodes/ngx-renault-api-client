@@ -4,7 +4,7 @@ import { KamereonApi } from '@remscodes/renault-api';
 import { Observable } from 'rxjs';
 import { Optional } from '../../models/shared.model';
 import { NgxRenaultSession } from '../../ngx-renault-session.service';
-import { addHttpHeader } from '../../utils/request.utils';
+import { addHttpHeader, addHttpParam } from '../../utils/request.utils';
 
 @Injectable()
 export class KamereonHandler implements HttpHandler {
@@ -18,7 +18,8 @@ export class KamereonHandler implements HttpHandler {
     req = addHttpHeader(req, 'apikey', KamereonApi.KEY);
     req = addHttpHeader(req, 'accept', 'application/json');
     req = addHttpHeader(req, 'content-type', 'application/vnd.api+json');
-    req = addHttpHeader(req, 'country', this.session.country);
+
+    req = addHttpParam(req, 'country', this.session.country);
 
     const token: Optional<string> = this.session.token;
     if (token) req = addHttpHeader(req, 'x-gigya-id_token', token);
