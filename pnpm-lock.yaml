@@ -59,8 +59,8 @@ devDependencies:
     specifier: ^17.0.0
     version: 17.0.3(@angular/compiler@17.0.3)(typescript@5.2.2)
   '@types/jasmine':
-    specifier: ~5.1.0
-    version: 5.1.2
+    specifier: ~5.1.4
+    version: 5.1.4
   autoprefixer:
     specifier: ^10.4.16
     version: 10.4.16(postcss@8.4.31)
@@ -2571,8 +2571,8 @@ packages:
       '@types/node': 20.9.1
     dev: true
 
-  /@types/jasmine@5.1.2:
-    resolution: {integrity: sha512-GJzYZWAr7aZuVsQwo77ErgdnqiXiz1lwsXXKgsJEwMlAxWQqjpiTGh0JOpLGXSlIFvIAFbgZTHs0u+jBzh/GFg==}
+  /@types/jasmine@5.1.4:
+    resolution: {integrity: sha512-px7OMFO/ncXxixDe1zR13V1iycqWae0MxTaw62RpFlksUi5QuNWgQJFkTQjIOvrmutJbI7Fp2Y2N1F6D2R4G6w==}
     dev: true
 
   /@types/json-schema@7.0.15:
