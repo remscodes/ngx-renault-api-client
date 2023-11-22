@@ -29,9 +29,6 @@ dependencies:
   '@angular/router':
     specifier: ^17.0.0
     version: 17.0.3(@angular/common@17.0.3)(@angular/core@17.0.3)(@angular/platform-browser@17.0.3)(rxjs@7.8.1)
-  '@remscodes/ngx-renault-api-client':
-    specifier: file:./dist/ngx-renault-api-client
-    version: file:dist/ngx-renault-api-client(@angular/common@17.0.3)(@angular/core@17.0.3)(@remscodes/renault-api@1.2.2)(dayjs@1.11.10)(rxjs@7.8.1)(thror@1.0.1)
   '@remscodes/renault-api':
     specifier: ^1.2.2
     version: 1.2.2
@@ -8013,25 +8010,3 @@ packages:
     resolution: {integrity: sha512-X4U7J1isDhoOmHmFWiLhloWc2lzMkdnumtfQ1LXzf/IOZp5NQYuMUTaviVzG/q1ugMBIXzin2AqeVJUoSEkNyQ==}
     dependencies:
       tslib: 2.6.2
-
-  file:dist/ngx-renault-api-client(@angular/common@17.0.3)(@angular/core@17.0.3)(@remscodes/renault-api@1.2.2)(dayjs@1.11.10)(rxjs@7.8.1)(thror@1.0.1):
-    resolution: {directory: dist/ngx-renault-api-client, type: directory}
-    id: file:dist/ngx-renault-api-client
-    name: '@remscodes/ngx-renault-api-client'
-    engines: {node: '>=18.13.0'}
-    peerDependencies:
-      '@angular/common': ^17.0.0
-      '@angular/core': ^17.0.0
-      '@remscodes/renault-api': ^1.2.2
-      dayjs: ^1.11.10
-      rxjs: ~7.8.0
-      thror: ^1.0.1
-    dependencies:
-      '@angular/common': 17.0.3(@angular/core@17.0.3)(rxjs@7.8.1)
-      '@angular/core': 17.0.3(rxjs@7.8.1)(zone.js@0.14.2)
-      '@remscodes/renault-api': 1.2.2
-      dayjs: 1.11.10
-      rxjs: 7.8.1
-      thror: 1.0.1
-      tslib: 2.6.2
-    dev: false
