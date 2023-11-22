@@ -4,7 +4,7 @@
   "compilerOptions": {
     "paths": {
       "@remscodes/ngx-renault-api-client": [
-        "./dist/remscodes/ngx-renault-api-client"
+        "./dist/ngx-renault-api-client"
       ]
     },
     "outDir": "./dist/out-tsc",
