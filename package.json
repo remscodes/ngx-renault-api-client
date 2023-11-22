@@ -9,7 +9,7 @@
     "url": "https://github.com/remscodes"
   },
   "scripts": {
-    "start": "npm run build && pnpm i && ng serve ngx-renault-api-client-demo",
+    "start": "npm run build && ng serve ngx-renault-api-client-demo",
     "start:host": "npm run start -- --host 0.0.0.0 --disable-host-check",
     "build": "ng build ngx-renault-api-client",
     "test": "ng test ngx-renault-api-client --code-coverage",
@@ -32,7 +32,6 @@
     "@angular/platform-browser": "^17.0.0",
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
-    "@remscodes/ngx-renault-api-client": "file:./dist/ngx-renault-api-client",
     "@remscodes/renault-api": "^1.2.2",
     "dayjs": "^1.11.10",
     "rxjs": "~7.8.0",
