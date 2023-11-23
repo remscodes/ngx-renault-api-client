@@ -12,10 +12,13 @@
     "start": "npm run build && ng serve ngx-renault-api-client-demo",
     "start:legacy": "npm run build && ng serve ngx-renault-api-client-demo-legacy",
     "start:host": "npm run start -- --host 0.0.0.0 --disable-host-check",
-    "build": "ng build ngx-renault-api-client",
+    "build": "ng build ngx-renault-api-client && npm run copy-README && npm run copy-LICENSE",
     "test": "ng test ngx-renault-api-client --code-coverage",
     "test:ci": "npm run test -- --no-watch --no-progress --browsers=ChromeHeadless",
-    "type": "tsc --noEmit"
+    "type": "tsc --noEmit",
+    "copy-README": "npm run copy-to-dist -- README.md",
+    "copy-LICENSE": "npm run copy-to-dist -- LICENSE",
+    "copy-to-dist": "node scripts/copy-to-dist.cjs"
   },
   "repository": {
     "type": "git",
