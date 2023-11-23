@@ -6,6 +6,9 @@ import { NgxRenaultSession } from '../ngx-renault-session.service';
 import { fixGigyaResponse } from './gigya-fix';
 import { GigyaHttpClient } from './http/gigya.http-client';
 
+/**
+ * Http client to use Gigya API.
+ */
 @Injectable()
 export class NgxGigyaClient {
 

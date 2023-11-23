@@ -3,6 +3,9 @@ import { NgxGigyaClient } from './gigya/ngx-gigya-client';
 import { NgxKamereonClient } from './kamereon/ngx-kamereon-client';
 import { NgxRenaultSession } from './ngx-renault-session.service';
 
+/**
+ * Http client to use Renault API.
+ */
 @Injectable()
 export class NgxRenaultClient {
 

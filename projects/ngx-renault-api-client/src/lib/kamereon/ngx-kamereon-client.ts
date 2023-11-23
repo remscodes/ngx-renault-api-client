@@ -10,6 +10,9 @@ import { dateFilterToParams } from '../utils/date.utils';
 import { KamereonHttpClient } from './http/kamereon.http-client';
 import { PerformApiUrl, ReadApiUrl } from './models/kamereon-url.models';
 
+/**
+ * Http client to use Kamereon API.
+ */
 @Injectable()
 export class NgxKamereonClient {
 
