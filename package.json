@@ -10,6 +10,7 @@
   },
   "scripts": {
     "start": "npm run build && ng serve ngx-renault-api-client-demo",
+    "start:legacy": "npm run build && ng serve ngx-renault-api-client-demo-legacy",
     "start:host": "npm run start -- --host 0.0.0.0 --disable-host-check",
     "build": "ng build ngx-renault-api-client",
     "test": "ng test ngx-renault-api-client --code-coverage",
