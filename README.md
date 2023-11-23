@@ -1,27 +1,34 @@
-# NgxRenaultApiClient
+<div align="center">
+    <h1>Angular Renault API Client</h1>
+    <p>Angular http client to use Renault API</p>
+</div> 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
+<div align="center">
 
-## Development server
+[![github ci](https://img.shields.io/github/actions/workflow/status/remscodes/ngx-renault-api-client/npm-ci.yml.svg?logo=github&label=CI&style=for-the-badge)](https://github.com/remscodes/ngx-renault-api-client/actions/workflows/npm-ci.yml)
+[![npm version](https://img.shields.io/npm/v/@remscodes/ngx-renault-api-client.svg?style=for-the-badge&logo=npm)](https://www.npmjs.org/package/@remscodes/ngx-renault-api-client)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/@remscodes/ngx-renault-api-client.svg?style=for-the-badge)](https://bundlephobia.com/package/@remscodes/ngx-renault-api-client)
+[![license](https://img.shields.io/github/license/remscodes/ngx-renault-api-client.svg?style=for-the-badge)](LICENSE)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+</div>
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```shell
+npm install @remscodes/ngx-renault-api-client
+```
 
-## Build
+## Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Disclaimer
 
-## Running unit tests
+This project is not affiliated with, endorsed by, or connected to Renault. I accept no responsibility for any consequences, intentional or accidental, resulting from interaction with the Renault's API using this project.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Credit
 
-## Running end-to-end tests
+Resources API based on [@remscodes/renault-api](https://github.com/remscodes/renault-api#credit).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## License
 
-## Further help
+[MIT](LICENSE) © Rémy Abitbol.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
