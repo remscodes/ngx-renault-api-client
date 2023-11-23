@@ -1,11 +1,9 @@
 import { Component, computed, DestroyRef, Signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgxGigyaClient, NgxKamereonClient, NgxRenaultClient } from '@remscodes/ngx-renault-api-client';
 import { Account, AccountInfo, BatteryStatus, LoginInfo, Person, TokenInfo, Vehicles } from '@remscodes/renault-api';
 import { concatMap } from 'rxjs';
-import { NgxGigyaClient } from '../../../ngx-renault-api-client/src/lib/gigya/ngx-gigya-client';
-import { NgxKamereonClient } from '../../../ngx-renault-api-client/src/lib/kamereon/ngx-kamereon-client';
-import { NgxRenaultClient } from '../../../ngx-renault-api-client/src/lib/ngx-renault-client.service';
 import { Nullable, Optional } from './models/shared.models';
 import { AppService } from './services/app.service';
 
@@ -15,6 +13,7 @@ import { AppService } from './services/app.service';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+
   public constructor(
     private renaultClient: NgxRenaultClient,
     private appService: AppService,
