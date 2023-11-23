@@ -127,6 +127,94 @@
           }
         }
       }
+    },
+    "ngx-renault-api-client-demo-legacy": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ngx-renault-api-client-demo-legacy",
+      "sourceRoot": "projects/ngx-renault-api-client-demo-legacy/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/ngx-renault-api-client-demo-legacy",
+            "index": "projects/ngx-renault-api-client-demo-legacy/src/index.html",
+            "browser": "projects/ngx-renault-api-client-demo-legacy/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/ngx-renault-api-client-demo-legacy/tsconfig.app.json",
+            "assets": [
+              "projects/ngx-renault-api-client-demo-legacy/src/favicon.ico",
+              "projects/ngx-renault-api-client-demo-legacy/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-renault-api-client-demo-legacy/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "ngx-renault-api-client-demo-legacy:build:production"
+            },
+            "development": {
+              "buildTarget": "ngx-renault-api-client-demo-legacy:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "ngx-renault-api-client-demo-legacy:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/ngx-renault-api-client-demo-legacy/tsconfig.spec.json",
+            "assets": [
+              "projects/ngx-renault-api-client-demo-legacy/src/favicon.ico",
+              "projects/ngx-renault-api-client-demo-legacy/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-renault-api-client-demo-legacy/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   },
   "cli": {
