@@ -1,12 +1,13 @@
 import { JsonPipe, NgForOf, NgIf } from '@angular/common';
 import { Component, computed, DestroyRef, Signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Nullable, Optional } from '@demo-common/models';
+import { AppService } from '@demo-common/services';
+import { basicForm } from '@demo-common/utils';
 import { NgxGigyaClient, NgxKamereonClient, NgxRenaultClient } from '@remscodes/ngx-renault-api-client';
 import { Account, AccountInfo, BatteryStatus, LoginInfo, Person, TokenInfo, Vehicles } from '@remscodes/renault-api';
-import { concatMap } from 'rxjs';
-import { Nullable, Optional } from './models/shared.models';
-import { AppService } from './services/app.service';
+import { concatMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -32,63 +33,45 @@ export class AppComponent {
   private gigya: NgxGigyaClient = this.renaultClient.gigya;
   private kamereon: NgxKamereonClient = this.renaultClient.kamereon;
 
-  public form: FormGroup = new FormGroup({
-    login: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-  });
-
-  public formAccounts: FormGroup = new FormGroup({
-    accountId: new FormControl('', Validators.required),
-  });
-  public formVins: FormGroup = new FormGroup({
-    vin: new FormControl('', Validators.required),
-  });
+  public formLogin: FormGroup = basicForm(['login', 'password']);
+  public formAccounts: FormGroup = basicForm(['accountId']);
+  public formVins: FormGroup = basicForm(['vin']);
 
   public token: Signal<Nullable<string>> = this.appService.token;
 
   public accounts: Signal<Account[]> = computed(() => (this.appService.person()?.accounts ?? []));
   public vins: Signal<string[]> = computed(() => (this.appService.vehicles().map(v => v.vin!) ?? []));
-  public vin = this.appService.selectedVin;
+  public vin: Signal<Nullable<string>> = this.appService.selectedVin;
 
   public batteryStatus: Optional<BatteryStatus>;
 
   public login(): void {
-    if (this.form.invalid) return;
+    if (this.formLogin.invalid) return;
 
-    const { login, password } = this.form.value;
+    const { login, password } = this.formLogin.value;
 
     this.gigya.login(login, password)
       .pipe(
-        concatMap(({ sessionInfo }: LoginInfo) => {
-          this.appService.gigyaToken.set(sessionInfo?.cookieValue!);
-          return this.gigya.getJwt();
-        }),
+        tap(({ sessionInfo }: LoginInfo) => this.appService.gigyaToken.set(sessionInfo?.cookieValue!)),
+        concatMap(() => this.gigya.getJwt()),
         takeUntilDestroyed(this.destroyRef),
       )
       .subscribe({
-        next: ({ id_token }: TokenInfo) => {
-          this.appService.token.set(id_token!);
-        },
+        next: ({ id_token }: TokenInfo) => this.appService.token.set(id_token!),
       });
   }
 
   public getInfos(): void {
-    this.gigya.getJwt().pipe(
-      concatMap(({ id_token }: TokenInfo) => {
-        this.appService.token.set(id_token!);
-        return this.gigya.getAccountInfo();
-      }),
-      concatMap(({ data }: AccountInfo) => {
-        const personId = data!.personId!;
-        this.appService.personId.set(personId);
-        return this.kamereon.getPerson(personId);
-      }),
-      takeUntilDestroyed(this.destroyRef),
-    ).subscribe({
-      next: (person: Person) => {
-        this.appService.person.set(person);
-      },
-    });
+    this.gigya.getJwt()
+      .pipe(
+        tap(({ id_token }: TokenInfo) => this.appService.token.set(id_token!)),
+        concatMap(() => this.gigya.getAccountInfo()),
+        concatMap(({ data }: AccountInfo) => this.kamereon.getPerson(data!.personId!)),
+        takeUntilDestroyed(this.destroyRef),
+      )
+      .subscribe({
+        next: (person: Person) => this.appService.person.set(person),
+      });
   }
 
   public getBatteryStatus(): void {

@@ -4,12 +4,11 @@
 
     <span class="font-bold">Gigya</span>
 
-
     <div class="panel flex-1">
 
       <span class="font-bold">Login</span>
 
-      <form class="flex flex-row gap-4" [formGroup]="form" (ngSubmit)="login()">
+      <form class="flex flex-row gap-4" [formGroup]="formLogin" (ngSubmit)="login()">
 
         <input id="user-text-field"
                type="email"
