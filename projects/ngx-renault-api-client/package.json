@@ -1,6 +1,6 @@
 {
   "name": "@remscodes/ngx-renault-api-client",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Angular http client to use Renault API",
   "license": "MIT",
   "author": {
