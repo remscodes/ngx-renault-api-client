@@ -39,9 +39,17 @@ export class NgxRenaultSession {
   /**
    * Selected account id.
    *
-   * Need to be set in order to be automatically passed into each Kamereon API functions that needs it.
+   * To be set in order to be automatically passed into each Kamereon API functions that needs it.
    *
-   * Otherwise, it needs to be manually passed as function argument.
+   * Otherwise, it needs to be manually passed as function argument using `KamereonClient`.
    */
   public accountId: Optional<string>;
+  /**
+   * Selected vehicle vin.
+   *
+   * To be set in order to be automatically passed into each Kamereon API functions that needs it.
+   *
+   * Otherwise, it needs to be manually passed as function argument using `KamereonClient`.
+   */
+  public vin: Optional<string>;
 }
