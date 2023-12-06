@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { provideRenaultClient } from '@remscodes/ngx-renault-api-client';
 import { AppComponent } from './app.component';
 import { AuthModule } from './core/auth/auth.module';
-import { ErrorModule } from './core/error/error.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,6 @@ import { ErrorModule } from './core/error/error.module';
     FormsModule,
     ReactiveFormsModule,
     AuthModule,
-    ErrorModule,
   ],
   providers: [
     provideRenaultClient(),

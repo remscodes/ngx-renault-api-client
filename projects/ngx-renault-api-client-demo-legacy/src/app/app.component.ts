@@ -1,10 +1,10 @@
-import { Component, computed, DestroyRef, Signal } from '@angular/core';
+import { Component, DestroyRef, Signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormGroup } from '@angular/forms';
 import { Nullable, Optional } from '@demo-common/models';
 import { AppService } from '@demo-common/services';
 import { basicForm } from '@demo-common/utils';
-import { NgxGigyaClient, NgxKamereonClient, NgxRenaultClient } from '@remscodes/ngx-renault-api-client';
+import { NgxGigyaClient, NgxKamereonClient } from '@remscodes/ngx-renault-api-client';
 import { Account, AccountInfo, BatteryStatus, LoginInfo, Person, TokenInfo, Vehicles } from '@remscodes/renault-api';
 import { concatMap, tap } from 'rxjs';
 
@@ -16,22 +16,19 @@ import { concatMap, tap } from 'rxjs';
 export class AppComponent {
 
   public constructor(
-    private renaultClient: NgxRenaultClient,
+    private gigya: NgxGigyaClient,
+    private kamereon: NgxKamereonClient,
     private appService: AppService,
     private destroyRef: DestroyRef,
   ) { }
-
-  private gigya: NgxGigyaClient = this.renaultClient.gigya;
-  private kamereon: NgxKamereonClient = this.renaultClient.kamereon;
 
   public formLogin: FormGroup = basicForm(['login', 'password']);
   public formAccounts: FormGroup = basicForm(['accountId']);
   public formVins: FormGroup = basicForm(['vin']);
 
   public token: Signal<Nullable<string>> = this.appService.token;
-
-  public accounts: Signal<Account[]> = computed(() => (this.appService.person()?.accounts ?? []));
-  public vins: Signal<string[]> = computed(() => (this.appService.vehicles().map(v => v.vin!) ?? []));
+  public accounts: Signal<Account[]> = this.appService.accounts;
+  public vins: Signal<string[]> = this.appService.vins;
   public vin: Signal<Nullable<string>> = this.appService.selectedVin;
 
   public batteryStatus: Optional<BatteryStatus>;
