@@ -1,6 +1,6 @@
 <div align="center">
     <h1>Angular Renault API Client</h1>
-    <p>Angular http client to use Renault API</p>
+    <p>Angular http client using Renault API</p>
 </div> 
 
 <div align="center">
@@ -32,9 +32,9 @@ export const appConfig: ApplicationConfig = {
 
 ```ts
 // app.component.ts
-import { Component, DestroyRef } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { NgxGigyaClient, NgxKamereonClient, NgxRenaultClient, NgxRenaultSession } from '@remscodes/ngx-renault-api-client';
+import { NgxGigyaClient, NgxKamereonClient, NgxRenaultSession } from '@remscodes/ngx-renault-api-client';
 import { concatMap } from 'rxjs';
 
 @Component({
@@ -46,14 +46,10 @@ import { concatMap } from 'rxjs';
 })
 export class AppComponent {
 
-  constructor(
-    private renault: NgxRenaultClient,
-    private session: NgxRenaultSession,
-    private destroyRef: DestroyRef,
-  ) { }
-
-  private gigya: NgxGigyaClient = this.renault.gigya;
-  private kamereon: NgxKamereonClient = this.renault.kamereon;
+  private gigya = inject(NgxGigyaClient);
+  private kamereon = inject(NgxKamereonClient);
+  private session = inject(NgxRenaultSession);
+  private destroyRef = inject(DestroyRef);
 
   // (1) Login to gigya service
   login(): void {
@@ -73,7 +69,7 @@ export class AppComponent {
 
   // (2) Get user's accounts
   getAccounts(): void {
-    this.kamereon.getPerson(this.session.personId)
+    this.kamereon.getPerson()
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: ({ accounts }) => {
@@ -85,19 +81,19 @@ export class AppComponent {
 
   // (3) Get account's vehicles
   getVehicles(): void {
-    this.kamereon.getAccountVehicles(accountId)
+    this.kamereon.getAccountVehicles()
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: ({ vehicleLinks }) => {
           // Select the vin you want 
-          this.vin = vehicleLinks[0].vin;
+          this.session.vin = vehicleLinks[0].vin;
         },
       });
   }
 
   // (4) Get current battery status
   getBatteryStatus(): void {
-    this.kamereon.readBatteryStatus(this.vin)
+    this.kamereon.readBatteryStatus()
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (batteryStatus) => {
