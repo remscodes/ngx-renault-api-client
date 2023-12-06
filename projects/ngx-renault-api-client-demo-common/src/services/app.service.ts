@@ -1,8 +1,8 @@
-import { effect, Inject, Injectable, signal, WritableSignal } from '@angular/core';
+import { computed, effect, Inject, Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import { Nullable } from '@demo-common/models';
 import { SESSION_STORAGE } from '@demo-common/tokens';
 import { NgxRenaultSession } from '@remscodes/ngx-renault-api-client';
-import { Person, VehicleLink } from '@remscodes/renault-api';
+import { Account, Person, VehicleLink } from '@remscodes/renault-api';
 
 @Injectable({ providedIn: 'root' })
 export class AppService {
@@ -14,16 +14,19 @@ export class AppService {
     this.observeGigyaToken();
     this.observeToken();
     this.observeAccountId();
+    this.observeVin();
   }
 
-  public readonly gigyaToken: WritableSignal<Nullable<string>> = signal(window.sessionStorage.getItem('gigyaToken'));
-  public readonly token: WritableSignal<Nullable<string>> = signal(window.sessionStorage.getItem('token'));
-  public readonly vehicles: WritableSignal<VehicleLink[]> = signal([]);
+  public gigyaToken: WritableSignal<Nullable<string>> = signal(window.sessionStorage.getItem('gigyaToken'));
+  public token: WritableSignal<Nullable<string>> = signal(window.sessionStorage.getItem('token'));
+  public vehicles: WritableSignal<VehicleLink[]> = signal([]);
+  public vins: Signal<string[]> = computed(() => (this.vehicles().map(v => v.vin!) ?? []));
 
-  public readonly person: WritableSignal<Nullable<Person>> = signal(null);
+  public person: WritableSignal<Nullable<Person>> = signal(null);
+  public accounts: Signal<Account[]> = computed(() => (this.person()?.accounts ?? []));
 
-  public readonly selectedAccountId: WritableSignal<Nullable<string>> = signal(this.sessionStorage.getItem('accountId'));
-  public readonly selectedVin: WritableSignal<Nullable<string>> = signal(null);
+  public selectedAccountId: WritableSignal<Nullable<string>> = signal(this.sessionStorage.getItem('accountId'));
+  public selectedVin: WritableSignal<Nullable<string>> = signal(window.sessionStorage.getItem('vin'));
 
   private observeGigyaToken(): void {
     effect(() => {
@@ -50,6 +53,16 @@ export class AppService {
 
       this.sessionStorage.setItem('accountId', accountId);
       this.session.accountId = accountId;
+    });
+  }
+
+  private observeVin(): void {
+    effect(() => {
+      const vin: Nullable<string> = this.selectedVin();
+      if (!vin) return;
+
+      this.sessionStorage.setItem('vin', vin);
+      this.session.vin = vin;
     });
   }
 }
