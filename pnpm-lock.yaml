@@ -51,7 +51,7 @@ dependencies:
 devDependencies:
   '@angular-devkit/build-angular':
     specifier: ^17.0.7
-    version: 17.0.7(@angular/compiler-cli@17.0.3)(karma@6.4.2)(ng-packagr@17.0.2)(tailwindcss@3.3.7)(typescript@5.2.2)
+    version: 17.0.7(@angular/compiler-cli@17.0.3)(karma@6.4.2)(ng-packagr@17.0.3)(tailwindcss@3.3.7)(typescript@5.2.2)
   '@angular/cli':
     specifier: ^17.0.7
     version: 17.0.7
@@ -83,8 +83,8 @@ devDependencies:
     specifier: ~2.1.0
     version: 2.1.0(jasmine-core@5.1.1)(karma-jasmine@5.1.0)(karma@6.4.2)
   ng-packagr:
-    specifier: ^17.0.2
-    version: 17.0.2(@angular/compiler-cli@17.0.3)(tailwindcss@3.3.7)(tslib@2.6.2)(typescript@5.2.2)
+    specifier: ^17.0.3
+    version: 17.0.3(@angular/compiler-cli@17.0.3)(tailwindcss@3.3.7)(tslib@2.6.2)(typescript@5.2.2)
   postcss:
     specifier: ^8.4.32
     version: 8.4.32
@@ -120,7 +120,7 @@ packages:
       - chokidar
     dev: true
 
-  /@angular-devkit/build-angular@17.0.7(@angular/compiler-cli@17.0.3)(karma@6.4.2)(ng-packagr@17.0.2)(tailwindcss@3.3.7)(typescript@5.2.2):
+  /@angular-devkit/build-angular@17.0.7(@angular/compiler-cli@17.0.3)(karma@6.4.2)(ng-packagr@17.0.3)(tailwindcss@3.3.7)(typescript@5.2.2):
     resolution: {integrity: sha512-AtEzLk6n6BXqQzk0Bsupe6GV0IgUe7RbpBfqROi+NZqMA7OUAHCX3xA6M68Qu+5KxBtW7T5lHeZZ7iP/y39wtQ==}
     engines: {node: ^18.13.0 || >=20.9.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
     peerDependencies:
@@ -197,7 +197,7 @@ packages:
       magic-string: 0.30.5
       mini-css-extract-plugin: 2.7.6(webpack@5.89.0)
       mrmime: 1.0.1
-      ng-packagr: 17.0.2(@angular/compiler-cli@17.0.3)(tailwindcss@3.3.7)(tslib@2.6.2)(typescript@5.2.2)
+      ng-packagr: 17.0.3(@angular/compiler-cli@17.0.3)(tailwindcss@3.3.7)(tslib@2.6.2)(typescript@5.2.2)
       open: 8.4.2
       ora: 5.4.1
       parse5-html-rewriting-stream: 7.0.0
@@ -5753,8 +5753,8 @@ packages:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
 
-  /ng-packagr@17.0.2(@angular/compiler-cli@17.0.3)(tailwindcss@3.3.7)(tslib@2.6.2)(typescript@5.2.2):
-    resolution: {integrity: sha512-1bn1Y93d23ZwTjazCdiEEdolYbXPddq4Q1XNhh+CyUgSTMONJhW2Ikpzbt+Z+3uxz0kSAAPBlHTx7uABXbMPPQ==}
+  /ng-packagr@17.0.3(@angular/compiler-cli@17.0.3)(tailwindcss@3.3.7)(tslib@2.6.2)(typescript@5.2.2):
+    resolution: {integrity: sha512-e4GWKOblzwtkkDwI0GRd2gUmuJgg6LgECHbnkB/JpyDlvz1Sd+nEzExztt3UbclLs9FkopSVE5TohKh58B8aeg==}
     engines: {node: ^18.13.0 || >=20.9.0}
     hasBin: true
     peerDependencies:
