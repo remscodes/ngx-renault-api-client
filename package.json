@@ -39,7 +39,7 @@
     "@remscodes/renault-api": "^1.2.2",
     "dayjs": "^1.11.10",
     "rxjs": "~7.8.0",
-    "thror": "^1.0.1",
+    "thror": "^1.0.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
   },
