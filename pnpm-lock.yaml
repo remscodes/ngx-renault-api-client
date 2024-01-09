@@ -16,7 +16,7 @@ dependencies:
     version: 17.0.3(@angular/core@17.0.3)
   '@angular/core':
     specifier: ^17.0.0
-    version: 17.0.3(rxjs@7.8.1)(zone.js@0.14.2)
+    version: 17.0.3(rxjs@7.8.1)(zone.js@0.14.3)
   '@angular/forms':
     specifier: ^17.0.0
     version: 17.0.3(@angular/common@17.0.3)(@angular/core@17.0.3)(@angular/platform-browser@17.0.3)(rxjs@7.8.1)
@@ -45,8 +45,8 @@ dependencies:
     specifier: ^2.3.0
     version: 2.6.2
   zone.js:
-    specifier: ~0.14.2
-    version: 0.14.2
+    specifier: ~0.14.3
+    version: 0.14.3
 
 devDependencies:
   '@angular-devkit/build-angular':
@@ -298,7 +298,7 @@ packages:
     peerDependencies:
       '@angular/core': 17.0.3
     dependencies:
-      '@angular/core': 17.0.3(rxjs@7.8.1)(zone.js@0.14.2)
+      '@angular/core': 17.0.3(rxjs@7.8.1)(zone.js@0.14.3)
       tslib: 2.6.2
     dev: false
 
@@ -338,7 +338,7 @@ packages:
       '@angular/core': 17.0.3
       rxjs: ^6.5.3 || ^7.4.0
     dependencies:
-      '@angular/core': 17.0.3(rxjs@7.8.1)(zone.js@0.14.2)
+      '@angular/core': 17.0.3(rxjs@7.8.1)(zone.js@0.14.3)
       rxjs: 7.8.1
       tslib: 2.6.2
     dev: false
@@ -374,10 +374,10 @@ packages:
       '@angular/core':
         optional: true
     dependencies:
-      '@angular/core': 17.0.3(rxjs@7.8.1)(zone.js@0.14.2)
+      '@angular/core': 17.0.3(rxjs@7.8.1)(zone.js@0.14.3)
       tslib: 2.6.2
 
-  /@angular/core@17.0.3(rxjs@7.8.1)(zone.js@0.14.2):
+  /@angular/core@17.0.3(rxjs@7.8.1)(zone.js@0.14.3):
     resolution: {integrity: sha512-zY4yhPiphuktrodaM+GiP8G07qnUlmwKElLjYazeIR8A+kF51RQRpSf/pWe5M0uJIn5Oja+RdO9kzhDI9QvOcA==}
     engines: {node: ^18.13.0 || >=20.9.0}
     peerDependencies:
@@ -386,7 +386,7 @@ packages:
     dependencies:
       rxjs: 7.8.1
       tslib: 2.6.2
-      zone.js: 0.14.2
+      zone.js: 0.14.3
 
   /@angular/forms@17.0.3(@angular/common@17.0.3)(@angular/core@17.0.3)(@angular/platform-browser@17.0.3)(rxjs@7.8.1):
     resolution: {integrity: sha512-slCUGe5nVOrA0Su9pkmgPXBVzkgh4stvVFBb6ic9/+GlmtRi8h1v5jAFhR4B0R4iaaIoF+TTpRKhZShwtFSqSg==}
@@ -398,7 +398,7 @@ packages:
       rxjs: ^6.5.3 || ^7.4.0
     dependencies:
       '@angular/common': 17.0.3(@angular/core@17.0.3)(rxjs@7.8.1)
-      '@angular/core': 17.0.3(rxjs@7.8.1)(zone.js@0.14.2)
+      '@angular/core': 17.0.3(rxjs@7.8.1)(zone.js@0.14.3)
       '@angular/platform-browser': 17.0.3(@angular/animations@17.0.3)(@angular/common@17.0.3)(@angular/core@17.0.3)
       rxjs: 7.8.1
       tslib: 2.6.2
@@ -415,7 +415,7 @@ packages:
     dependencies:
       '@angular/common': 17.0.3(@angular/core@17.0.3)(rxjs@7.8.1)
       '@angular/compiler': 17.0.3(@angular/core@17.0.3)
-      '@angular/core': 17.0.3(rxjs@7.8.1)(zone.js@0.14.2)
+      '@angular/core': 17.0.3(rxjs@7.8.1)(zone.js@0.14.3)
       '@angular/platform-browser': 17.0.3(@angular/animations@17.0.3)(@angular/common@17.0.3)(@angular/core@17.0.3)
       tslib: 2.6.2
     dev: false
@@ -433,7 +433,7 @@ packages:
     dependencies:
       '@angular/animations': 17.0.3(@angular/core@17.0.3)
       '@angular/common': 17.0.3(@angular/core@17.0.3)(rxjs@7.8.1)
-      '@angular/core': 17.0.3(rxjs@7.8.1)(zone.js@0.14.2)
+      '@angular/core': 17.0.3(rxjs@7.8.1)(zone.js@0.14.3)
       tslib: 2.6.2
     dev: false
 
@@ -447,7 +447,7 @@ packages:
       rxjs: ^6.5.3 || ^7.4.0
     dependencies:
       '@angular/common': 17.0.3(@angular/core@17.0.3)(rxjs@7.8.1)
-      '@angular/core': 17.0.3(rxjs@7.8.1)(zone.js@0.14.2)
+      '@angular/core': 17.0.3(rxjs@7.8.1)(zone.js@0.14.3)
       '@angular/platform-browser': 17.0.3(@angular/animations@17.0.3)(@angular/common@17.0.3)(@angular/core@17.0.3)
       rxjs: 7.8.1
       tslib: 2.6.2
@@ -8042,7 +8042,7 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /zone.js@0.14.2:
-    resolution: {integrity: sha512-X4U7J1isDhoOmHmFWiLhloWc2lzMkdnumtfQ1LXzf/IOZp5NQYuMUTaviVzG/q1ugMBIXzin2AqeVJUoSEkNyQ==}
+  /zone.js@0.14.3:
+    resolution: {integrity: sha512-jYoNqF046Q+JfcZSItRSt+oXFcpXL88yq7XAZjb/NKTS7w2hHpKjRJ3VlFD1k75wMaRRXNUt5vrZVlygiMyHbA==}
     dependencies:
       tslib: 2.6.2
