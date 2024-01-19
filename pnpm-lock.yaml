@@ -51,7 +51,7 @@ dependencies:
 devDependencies:
   '@angular-devkit/build-angular':
     specifier: ^17.0.10
-    version: 17.0.10(@angular/compiler-cli@17.0.3)(karma@6.4.2)(ng-packagr@17.0.3)(tailwindcss@3.4.1)(typescript@5.2.2)
+    version: 17.0.10(@angular/compiler-cli@17.0.3)(karma@6.4.2)(ng-packagr@17.1.0)(tailwindcss@3.4.1)(typescript@5.2.2)
   '@angular/cli':
     specifier: ^17.0.10
     version: 17.0.10
@@ -83,8 +83,8 @@ devDependencies:
     specifier: ~2.1.0
     version: 2.1.0(jasmine-core@5.1.1)(karma-jasmine@5.1.0)(karma@6.4.2)
   ng-packagr:
-    specifier: ^17.0.3
-    version: 17.0.3(@angular/compiler-cli@17.0.3)(tailwindcss@3.4.1)(tslib@2.6.2)(typescript@5.2.2)
+    specifier: ^17.1.0
+    version: 17.1.0(@angular/compiler-cli@17.0.3)(tailwindcss@3.4.1)(tslib@2.6.2)(typescript@5.2.2)
   postcss:
     specifier: ^8.4.33
     version: 8.4.33
@@ -120,7 +120,7 @@ packages:
       - chokidar
     dev: true
 
-  /@angular-devkit/build-angular@17.0.10(@angular/compiler-cli@17.0.3)(karma@6.4.2)(ng-packagr@17.0.3)(tailwindcss@3.4.1)(typescript@5.2.2):
+  /@angular-devkit/build-angular@17.0.10(@angular/compiler-cli@17.0.3)(karma@6.4.2)(ng-packagr@17.1.0)(tailwindcss@3.4.1)(typescript@5.2.2):
     resolution: {integrity: sha512-RWVu5Pdg6VdO3v1i0oI+HGr/NE4rhbNelM43w+9TqrzDtwmvckWsadSp0H88cPhQ4YGY5ldGKyQufO1UItR26w==}
     engines: {node: ^18.13.0 || >=20.9.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
     peerDependencies:
@@ -197,7 +197,7 @@ packages:
       magic-string: 0.30.5
       mini-css-extract-plugin: 2.7.6(webpack@5.89.0)
       mrmime: 1.0.1
-      ng-packagr: 17.0.3(@angular/compiler-cli@17.0.3)(tailwindcss@3.4.1)(tslib@2.6.2)(typescript@5.2.2)
+      ng-packagr: 17.1.0(@angular/compiler-cli@17.0.3)(tailwindcss@3.4.1)(tslib@2.6.2)(typescript@5.2.2)
       open: 8.4.2
       ora: 5.4.1
       parse5-html-rewriting-stream: 7.0.0
@@ -3696,10 +3696,6 @@ packages:
     hasBin: true
     dev: true
 
-  /cuint@0.2.2:
-    resolution: {integrity: sha512-d4ZVpCW31eWwCMe1YT3ur7mUDnTXbgwyzaL320DrcRT45rfjYxkt5QWLrmOJ+/UEAI2+fQgKe/fCjR8l4TpRgw==}
-    dev: true
-
   /custom-event@1.0.1:
     resolution: {integrity: sha512-GAj5FOq0Hd+RsCGVJxZuKaIDXDf3h6GQoNEjFgbLLI/trgtavwUbSnZ5pVfg27DVCaWjIohryS0JFwIJyT2cMg==}
     dev: true
@@ -3803,9 +3799,9 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /dependency-graph@0.11.0:
-    resolution: {integrity: sha512-JeMq7fEshyepOWDfcfHK06N3MhyPhz++vtqWhMT5O9A3K42rdsEDpfdVqjaqaAhsw6a+ZqeDvQVtD0hFHQWrzg==}
-    engines: {node: '>= 0.6.0'}
+  /dependency-graph@1.0.0:
+    resolution: {integrity: sha512-cW3gggJ28HZ/LExwxP2B++aiKxhJXMSIt9K48FOXQkm+vuG5gyatXnLsONRJdzO/7VfjDIiaOOa/bs4l464Lwg==}
+    engines: {node: '>=4'}
     dev: true
 
   /destroy@1.0.4:
@@ -5544,12 +5540,6 @@ packages:
     hasBin: true
     dev: true
 
-  /mime@2.5.2:
-    resolution: {integrity: sha512-tqkh47FzKeCPD2PUiPB6pkbMzsCasjxAfC62/Wap5qrUWcb+sFasXUC5I3gYM5iBM8v/Qpn4UK0x+j0iHyFPDg==}
-    engines: {node: '>=4.0.0'}
-    hasBin: true
-    dev: true
-
   /mime@2.6.0:
     resolution: {integrity: sha512-USPkMeET31rOMiarsBNIHZKLGgvKc/LrjofAnBlOttf5ajRvqiRA8QsenbcooctK6d6Ts6aqZXBA+XbkKthiQg==}
     engines: {node: '>=4.0.0'}
@@ -5573,12 +5563,6 @@ packages:
 
   /minimalistic-assert@1.0.1:
     resolution: {integrity: sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==}
-    dev: true
-
-  /minimatch@3.0.8:
-    resolution: {integrity: sha512-6FsRAQsxQ61mw+qP1ZzbL9Bc78x2p5OqNgNpnoAFLTrX8n5Kxph0CsnhmKKNXTWjXqU5L0pGPR7hYk+XWZr60Q==}
-    dependencies:
-      brace-expansion: 1.1.11
     dev: true
 
   /minimatch@3.1.2:
@@ -5753,15 +5737,15 @@ packages:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
 
-  /ng-packagr@17.0.3(@angular/compiler-cli@17.0.3)(tailwindcss@3.4.1)(tslib@2.6.2)(typescript@5.2.2):
-    resolution: {integrity: sha512-e4GWKOblzwtkkDwI0GRd2gUmuJgg6LgECHbnkB/JpyDlvz1Sd+nEzExztt3UbclLs9FkopSVE5TohKh58B8aeg==}
+  /ng-packagr@17.1.0(@angular/compiler-cli@17.0.3)(tailwindcss@3.4.1)(tslib@2.6.2)(typescript@5.2.2):
+    resolution: {integrity: sha512-pUVevtjmRSlDOADQ3BNCtq5gZCAbtIVgHemx7R5eEgta8HbiLApFxbayDiNnviaSIpyJzzAv13oPiOvMdGLLwQ==}
     engines: {node: ^18.13.0 || >=20.9.0}
     hasBin: true
     peerDependencies:
-      '@angular/compiler-cli': ^17.0.0 || ^17.0.0-next.0
+      '@angular/compiler-cli': ^17.0.0 || ^17.1.0-next.0 || ^17.2.0-next.0
       tailwindcss: ^2.0.0 || ^3.0.0
       tslib: ^2.3.0
-      typescript: '>=5.2 <5.3'
+      typescript: '>=5.2 <5.4'
     peerDependenciesMeta:
       tailwindcss:
         optional: true
@@ -5772,13 +5756,12 @@ packages:
       '@rollup/wasm-node': 4.5.1
       ajv: 8.12.0
       ansi-colors: 4.1.3
-      autoprefixer: 10.4.16(postcss@8.4.33)
       browserslist: 4.22.1
       cacache: 18.0.0
       chokidar: 3.5.3
       commander: 11.1.0
       convert-source-map: 2.0.0
-      dependency-graph: 0.11.0
+      dependency-graph: 1.0.0
       esbuild-wasm: 0.19.5
       fast-glob: 3.3.2
       find-cache-dir: 3.3.2
@@ -5786,9 +5769,8 @@ packages:
       jsonc-parser: 3.2.0
       less: 4.2.0
       ora: 5.4.1
-      piscina: 4.1.0
+      piscina: 4.3.0
       postcss: 8.4.33
-      postcss-url: 10.1.3(postcss@8.4.33)
       rxjs: 7.8.1
       sass: 1.69.5
       tailwindcss: 3.4.1
@@ -6253,6 +6235,12 @@ packages:
       nice-napi: 1.0.2
     dev: true
 
+  /piscina@4.3.0:
+    resolution: {integrity: sha512-vTQszGZj78p0BHFNO/cSvpzPUYa4tLXRe30aIYyQjqRS3fK/kPqdxvkTfGXQlEpWOI+mOOkda0iEY6NaanLWJA==}
+    optionalDependencies:
+      nice-napi: 1.0.2
+    dev: true
+
   /pkg-dir@4.2.0:
     resolution: {integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==}
     engines: {node: '>=8'}
@@ -6387,19 +6375,6 @@ packages:
     dependencies:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
-    dev: true
-
-  /postcss-url@10.1.3(postcss@8.4.33):
-    resolution: {integrity: sha512-FUzyxfI5l2tKmXdYc6VTu3TWZsInayEKPbiyW+P6vmmIrrb4I6CGX0BFoewgYHLK+oIL5FECEK02REYRpBvUCw==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      postcss: ^8.0.0
-    dependencies:
-      make-dir: 3.1.0
-      mime: 2.5.2
-      minimatch: 3.0.8
-      postcss: 8.4.33
-      xxhashjs: 0.2.2
     dev: true
 
   /postcss-value-parser@4.2.0:
@@ -7962,12 +7937,6 @@ packages:
   /xmlhttprequest-ssl@2.0.0:
     resolution: {integrity: sha512-QKxVRxiRACQcVuQEYFsI1hhkrMlrXHPegbbd1yn9UHOmRxY+si12nQYzri3vbzt8VdTTRviqcKxcyllFas5z2A==}
     engines: {node: '>=0.4.0'}
-    dev: true
-
-  /xxhashjs@0.2.2:
-    resolution: {integrity: sha512-AkTuIuVTET12tpsVIQo+ZU6f/qDmKuRUcjaqR+OIvm+aCBsZ95i7UVY5WJ9TMsSaZ0DA2WxoZ4acu0sPH+OKAw==}
-    dependencies:
-      cuint: 0.2.2
     dev: true
 
   /y18n@5.0.8:
