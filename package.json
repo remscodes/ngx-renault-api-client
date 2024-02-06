@@ -15,10 +15,13 @@
     "build": "ng build ngx-renault-api-client && npm run copy-README && npm run copy-LICENSE",
     "test": "ng test ngx-renault-api-client --code-coverage",
     "test:ci": "npm run test -- --no-watch --no-progress --browsers=ChromeHeadless",
-    "type": "tsc --noEmit",
+    "types": "tsc --noEmit",
     "copy-README": "npm run copy-to-dist -- README.md",
     "copy-LICENSE": "npm run copy-to-dist -- LICENSE",
     "copy-to-dist": "node scripts/copy-to-dist.cjs"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",
@@ -60,5 +63,5 @@
     "tailwindcss": "^3.4.1",
     "typescript": "~5.2.2"
   },
-  "packageManager": "pnpm@8.11.0"
+  "packageManager": "pnpm@8.15.1"
 }
