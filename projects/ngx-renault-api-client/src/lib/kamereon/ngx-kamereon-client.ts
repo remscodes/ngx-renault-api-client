@@ -1,7 +1,7 @@
 import { formatDate } from '@angular/common';
 import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ActionChargeMode, AdapterInfo, BatteryStatus, ChargeHistory, ChargeMode, ChargeModeInputs, Charges, ChargeScheduleInputs, ChargingSettings, Cockpit, DateFilter, HvacHistory, HvacScheduleInputs, HvacSessions, HvacSettings, HvacStartInputs, HvacStatus, KamereonApi, LockStatus, NotificationSettingsData, PERIOD_TZ_FORMAT, Person, ResStateData, VehicleContract, VehicleDetails, VehicleLocation, Vehicles } from '@remscodes/renault-api';
+import { ActionChargeMode, AdapterInfoData, BatteryStatusData, ChargeHistoryData, ChargeModeData, ChargeModeInputs, ChargeScheduleInputs, ChargesData, ChargingSettingsData, CockpitData, DateFilter, HvacHistoryData, HvacScheduleInputs, HvacSessionsData, HvacSettingsData, HvacStartInputs, HvacStatusData, KamereonApi, LockStatusData, NotificationSettingsData, PERIOD_TZ_FORMAT, Person, ResStateData, VehicleContract, VehicleDetails, VehicleLocationData, Vehicles } from '@remscodes/renault-api';
 import { Observable } from 'rxjs';
 import { emitError } from 'thror';
 import { Optional } from '../models/shared.model';
@@ -83,7 +83,7 @@ export class NgxKamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readAdapter(vin?: string, accountId?: string): Observable<AdapterInfo> {
+  public readAdapter(vin?: string, accountId?: string): Observable<AdapterInfoData> {
     return this.read({
       apiUrl: 'READ_ADAPTER_URL',
       method: 'readAdapter',
@@ -97,7 +97,7 @@ export class NgxKamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readBatteryStatus(vin?: string, accountId?: string): Observable<BatteryStatus> {
+  public readBatteryStatus(vin?: string, accountId?: string): Observable<BatteryStatusData> {
     return this.read({
       apiUrl: 'READ_BATTERY_STATUS_URL',
       method: 'readBatteryStatus',
@@ -112,7 +112,7 @@ export class NgxKamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readChargeHistory(filter: DateFilter, vin?: string, accountId?: string): Observable<ChargeHistory> {
+  public readChargeHistory(filter: DateFilter, vin?: string, accountId?: string): Observable<ChargeHistoryData> {
     return this.read({
       apiUrl: 'READ_CHARGE_HISTORY_URL',
       method: 'readChargeHistory',
@@ -127,7 +127,7 @@ export class NgxKamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readChargeMode(vin?: string, accountId?: string): Observable<ChargeMode> {
+  public readChargeMode(vin?: string, accountId?: string): Observable<ChargeModeData> {
     return this.read({
       apiUrl: 'READ_CHARGE_MODE_URL',
       method: 'readChargeMode',
@@ -142,7 +142,7 @@ export class NgxKamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readCharges(filter: Omit<DateFilter, 'period'>, vin?: string, accountId?: string): Observable<Charges> {
+  public readCharges(filter: Omit<DateFilter, 'period'>, vin?: string, accountId?: string): Observable<ChargesData> {
     return this.read({
       apiUrl: 'READ_CHARGES_URL',
       method: 'readCharges',
@@ -157,7 +157,7 @@ export class NgxKamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readChargingSettings(vin?: string, accountId?: string): Observable<ChargingSettings> {
+  public readChargingSettings(vin?: string, accountId?: string): Observable<ChargingSettingsData> {
     return this.read({
       apiUrl: 'READ_CHARGING_SETTINGS_URL',
       method: 'readChargingSettings',
@@ -171,7 +171,7 @@ export class NgxKamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readCockpit(vin?: string, accountId?: string): Observable<Cockpit> {
+  public readCockpit(vin?: string, accountId?: string): Observable<CockpitData> {
     return this.read({
       apiUrl: 'READ_COCKPIT_URL',
       method: 'readCockpit',
@@ -186,7 +186,7 @@ export class NgxKamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readHvacHistory(filter: DateFilter, vin?: string, accountId?: string): Observable<HvacHistory> {
+  public readHvacHistory(filter: DateFilter, vin?: string, accountId?: string): Observable<HvacHistoryData> {
     return this.read({
       apiUrl: 'READ_HVAC_HISTORY_URL',
       method: 'readHvacHistory',
@@ -202,7 +202,7 @@ export class NgxKamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readHvacSessions(filter: Omit<DateFilter, 'period'>, vin?: string, accountId?: string): Observable<HvacSessions> {
+  public readHvacSessions(filter: Omit<DateFilter, 'period'>, vin?: string, accountId?: string): Observable<HvacSessionsData> {
     return this.read({
       apiUrl: 'READ_HVAC_SESSIONS_URL',
       method: 'readHvacSessions',
@@ -217,7 +217,7 @@ export class NgxKamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readHvacStatus(vin?: string, accountId?: string): Observable<HvacStatus> {
+  public readHvacStatus(vin?: string, accountId?: string): Observable<HvacStatusData> {
     return this.read({
       apiUrl: 'READ_HVAC_STATUS_URL',
       method: 'readHvacStatus',
@@ -231,7 +231,7 @@ export class NgxKamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readHvacSettings(vin?: string, accountId?: string): Observable<HvacSettings> {
+  public readHvacSettings(vin?: string, accountId?: string): Observable<HvacSettingsData> {
     return this.read({
       apiUrl: 'READ_HVAC_SETTINGS_URL',
       method: 'readHvacSettings',
@@ -245,7 +245,7 @@ export class NgxKamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readLocation(vin?: string, accountId?: string): Observable<VehicleLocation> {
+  public readLocation(vin?: string, accountId?: string): Observable<VehicleLocationData> {
     return this.read({
       apiUrl: 'READ_LOCATION_URL',
       method: 'readLocation',
@@ -259,7 +259,7 @@ export class NgxKamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readLockStatus(vin?: string, accountId?: string): Observable<LockStatus> {
+  public readLockStatus(vin?: string, accountId?: string): Observable<LockStatusData> {
     return this.read({
       apiUrl: 'READ_LOCK_STATUS_URL',
       method: 'readLockStatus',
@@ -469,7 +469,9 @@ export class NgxKamereonClient {
   }
 
   /** @internal */
-  private read<T>({ apiUrl, method, accountId, vin, params }: ReadArgs): Observable<T> {
+  private read<T>(args: ReadArgs): Observable<T> {
+    const { apiUrl, method, accountId, vin, params } = args;
+
     const requiredAccountId: string = this.getAccountIdOrThrow(accountId, method);
     const requiredVin: string = this.getVinOrThrow(vin, method);
     return this.httpClient
@@ -477,7 +479,9 @@ export class NgxKamereonClient {
   }
 
   /** @internal */
-  private perform<T>({ apiUrl, method, accountId, vin, data }: PerformArgs): Observable<T> {
+  private perform<T>(args: PerformArgs): Observable<T> {
+    const { apiUrl, method, accountId, vin, data } = args;
+
     const requiredAccountId: string = this.getAccountIdOrThrow(accountId, method);
     const requiredVin: string = this.getVinOrThrow(vin, method);
     return this.httpClient
